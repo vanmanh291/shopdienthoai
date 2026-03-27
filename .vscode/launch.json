@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ShopdienthoaiApplication<shopdienthoai>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.web.ShopdienthoaiApplication",
+            "projectName": "shopdienthoai",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=54641 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=shopdienthoai"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DateHandle<shopdienthoai>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.web.utils.DateHandle",
+            "projectName": "shopdienthoai",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
