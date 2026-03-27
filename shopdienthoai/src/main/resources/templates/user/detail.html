@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/logo.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/main.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/comment.js"></script>
+    <script src="js/banner.js"></script>
+    <script>
+        window.onload = function () {
+            loadMenu();
+            loadBanner();
+            loadAProduct();
+            loadProductComment();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="menumain">
+    </div>
+    <div class="maincontentweb">
+        <div class="containercustom container">
+            <div class="container-fluid">
+                <div class="detail-layout">
+
+                    <!-- ===== CỘT TRÁI: Ảnh + Mô tả + Phản hồi ===== -->
+                    <div class="detail-main">
+
+                        <!-- Tên sản phẩm -->
+                        <h1 class="detail-name" id="detailnamepro">Điện thoại Samsung Galaxy S23 Ultra</h1>
+
+                        <!-- Ảnh + Thông tin mua hàng -->
+                        <div class="detail-top">
+
+                            <!-- Ảnh sản phẩm -->
+                            <div class="detail-gallery">
+                                <div class="detail-img-wrap">
+                                    <img id="imgdetailpro" src="image/product1.webp" class="detail-img-main">
+                                </div>
+                                <div class="detail-thumbnails row" id="listimgdetail"></div>
+                            </div>
+
+                            <!-- Thông tin mua hàng -->
+                            <div class="detail-purchase">
+
+                                <!-- Giá -->
+                                <div class="detail-price-block">
+                                    <strong class="detail-price-new" id="pricedetail">9,690,000 ₫</strong>
+                                    <span class="detail-price-old" id="oldpricestr"></span>
+                                    <span class="detail-vat">Giá đã bao gồm VAT</span>
+                                </div>
+
+                                <!-- Freeship -->
+                                <div class="detail-freeship">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3m-4 12a2 2 0 100-4 2 2 0 000 4zm6 0a2 2 0 100-4 2 2 0 000 4zm2-10h-8l-1.5-4H19l2 4z"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    Miễn phí vận chuyển toàn quốc
+                                </div>
+
+                                <!-- Lựa chọn màu sắc -->
+                                <div class="detail-section">
+                                    <div class="detail-section-head">
+                                        <span class="detail-section-label">Lựa chọn màu sắc</span>
+                                        <span class="detail-code" id="codepro"></span>
+                                    </div>
+                                    <div class="listsize row" id="listcolor"></div>
+                                </div>
+
+                                <!-- Phụ kiện -->
+                                <div class="detail-section">
+                                    <span class="detail-section-label">Phụ kiện đi kèm</span>
+                                    <span class="detail-accessory" id="phukiendikem"></span>
+                                </div>
+
+                                <!-- Nút mua -->
+                                <div class="detail-actions">
+                                    <button onclick="addCart('MUANGAY')" class="btn-buy-now">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <span>
+                                            Mua ngay
+                                            <small>Giao tận nhà (COD) hoặc nhận tại cửa hàng</small>
+                                        </span>
+                                    </button>
+                                    <button onclick="addCart('ADD')" class="btn-add-cart">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path
+                                                d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                        <span>Thêm vào giỏ</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mô tả sản phẩm -->
+                        <div class="detail-desc-block">
+                            <div class="detail-block-title">Mô tả sản phẩm</div>
+                            <div class="detail-desc-content" id="descriptiondetail"></div>
+                            <div class="detail-desc-fade">
+                                <span id="lbxemthem" class="btn-show-more">Xem thêm <i
+                                        class="fa fa-chevron-down"></i></span>
+                            </div>
+                        </div>
+
+                        <!-- Phản hồi -->
+                        <div class="detail-feedback-block">
+                            <div class="detail-block-title">Phản hồi khách hàng</div>
+
+                            <div id="listcautlct">
+                                <div class="singlectlct">
+                                    <div class="feedback-item">
+                                        <div class="feedback-header">
+                                            <img class="feedback-avatar" src="image/avatar.png">
+                                            <div>
+                                                <span class="feedback-username">Username</span>
+                                                <span class="feedback-date">16-07-2023</span>
+                                            </div>
+                                        </div>
+                                        <div class="feedback-content">Mua với giá dùng thử 2tr6 thấy sản phẩm năm nay
+                                            chất lượng đã cải tiến hơn nhiều, giao hàng cũng nhanh hơn.</div>
+                                        <div class="listimgcontent">
+                                            <img src="image/product1.webp">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Form bình luận -->
+                            <div class="feedback-form" id="mycomment">
+                                <div class="feedback-form-title">Viết đánh giá của bạn</div>
+                                <div class="liststar" id="liststar">
+                                    <span onclick="loadStar(0)" class="fa fa-star checkedstar"></span>
+                                    <span onclick="loadStar(1)" class="fa fa-star checkedstar"></span>
+                                    <span onclick="loadStar(2)" class="fa fa-star checkedstar"></span>
+                                    <span onclick="loadStar(3)" class="fa fa-star checkedstar"></span>
+                                    <span onclick="loadStar(4)" class="fa fa-star checkedstar"></span>
+                                </div>
+                                <label id="titlerep" class="feedback-label">Bình luận của bạn</label>
+                                <textarea id="noidungbl" class="feedback-textarea"
+                                    placeholder="Chia sẻ trải nghiệm của bạn về sản phẩm..."></textarea>
+                                <div onclick="choosefilecmt.click()" class="feedback-attach">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                    </svg>
+                                    <span id="slfile">Đính kèm hình ảnh (tối đa 3 hình)</span>
+                                    <span id="errorquan" style="display:none;color:#ef4444;">Chỉ được chọn tối đa 3
+                                        ảnh</span>
+                                    <input onchange="setFile()" type="file" id="choosefilecmt" multiple
+                                        style="display:none">
+                                </div>
+                                <div id="loading"></div>
+                                <button onclick="saveComment()" class="btn-comment">Gửi bình luận</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== CỘT PHẢI: Thông số + Sản phẩm tương tự ===== -->
+                    <aside class="detail-sidebar">
+
+                        <!-- Thông số kỹ thuật -->
+                        <div class="detail-spec-card">
+                            <div class="detail-block-title">Thông số kỹ thuật</div>
+                            <p class="spec-product-name" id="tenspkythuat"></p>
+                            <img id="imganhkythuat" src="image/product1.webp" class="spec-img">
+                            <div id="thongtincauhinh" class="spec-list"></div>
+                        </div>
+
+                        <!-- Sản phẩm tương tự -->
+                        <div class="detail-related-card">
+                            <div class="detail-block-title">Sản phẩm tương tự</div>
+                            <div id="listsanphamlienquan" class="row related-grid"></div>
+                        </div>
+
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="maincontentweb">
+    </div>
+</body>
+<script>
+    var check = true
+    document.getElementById("lbxemthem").onclick = function () {
+        if (check == true) {
+            document.getElementById("descriptiondetail").style.height = '100%'
+            document.getElementById("lbxemthem").innerText = "Thu gọn";
+            check = false
+        }
+        else {
+            document.getElementById("descriptiondetail").style.height = '300px'
+            document.getElementById("lbxemthem").innerText = "Xem thêm";
+            check = true;
+        }
+    }
+</script>
+
+</html>

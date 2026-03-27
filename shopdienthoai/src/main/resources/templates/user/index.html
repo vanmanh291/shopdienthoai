@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/logo.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/main.js"></script>
+    <script src="js/banner.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/blog.js"></script>
+    <script src="js/trademark.js"></script>
+    <script>
+        window.onload = function(){
+            loadMenu();
+            loadBanner();
+            loadAllTrademarkMenuLeft();
+            loadSanPhamMoiNhat(0);
+            loadSanPhamBanChay(0);
+            loadBlogIndex();
+        }
+    </script>
+</head>
+<body>
+
+<!-- Navbar (inject bởi main.js) -->
+<div id="menumain"></div>
+
+<div class="maincontentweb">
+    <div class="page-container container">
+
+        <!-- ===== HERO SECTION ===== -->
+        <div class="hero-section">
+
+            <!-- Danh mục trái -->
+            <aside class="sidebar-category">
+                <div class="sidebar-header">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Danh mục</span>
+                </div>
+                <div id="danhmucleft" class="sidebar-list"></div>
+            </aside>
+
+            <!-- Banner chính -->
+            <div class="banner-main">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div id="carouselindex">
+                        <div class="carousel-inner carousel-inner-index"></div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Banner phụ phải -->
+            <div class="banner-side">
+                <div class="bannerhot1 banner-side-item"></div>
+                <div class="bannerhot1 banner-side-item"></div>
+                <div class="bannerhot1 banner-side-item"></div>
+            </div>
+        </div>
+
+        <!-- Banner dưới full width -->
+        <div class="bannerhot1 banner-full"></div>
+
+        <!-- ===== TRUST BADGES ===== -->
+        <div class="trust-row">
+            <div class="trust-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#3b82f6" stroke-width="2" fill="rgba(59,130,246,0.12)"/></svg>
+                <span>Hàng chính hãng 100%</span>
+            </div>
+            <div class="trust-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="#10b981" stroke-width="2" fill="rgba(16,185,129,0.1)"/></svg>
+                <span>Bảo hành 12 tháng</span>
+            </div>
+            <div class="trust-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke="#f59e0b" stroke-width="2" fill="rgba(245,158,11,0.1)"/></svg>
+                <span>Thanh toán an toàn</span>
+            </div>
+            <div class="trust-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" stroke="#8b5cf6" stroke-width="2" fill="rgba(139,92,246,0.1)"/></svg>
+                <span>Đổi trả trong 30 ngày</span>
+            </div>
+            <div class="trust-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke="#ef4444" stroke-width="2" fill="rgba(239,68,68,0.1)"/></svg>
+                <span>Giao hàng toàn quốc</span>
+            </div>
+        </div>
+
+        <!-- ===== SẢN PHẨM MỚI NHẤT ===== -->
+        <section class="product-section">
+            <div class="section-head">
+                <div class="section-head-left">
+                    <span class="section-dot"></span>
+                    <h2 class="section-title">Điện thoại mới nhất</h2>
+                </div>
+                <div class="section-line"></div>
+            </div>
+            <div id="sanphammoinhat" class="product-grid row"></div>
+            <div class="load-more-wrap">
+                <button id="btnsanphammoi" class="btn-load-more">
+                    Xem thêm <i class="fa fa-chevron-down"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ===== SẢN PHẨM BÁN CHẠY ===== -->
+        <section class="product-section">
+            <div class="section-head">
+                <div class="section-head-left">
+                    <span class="section-dot section-dot-red"></span>
+                    <h2 class="section-title">Điện thoại bán chạy</h2>
+                    <span class="section-badge">HOT</span>
+                </div>
+                <div class="section-line"></div>
+            </div>
+            <div id="sanphambanchay" class="product-grid row"></div>
+            <div class="load-more-wrap">
+                <button id="btnsanphambanchay" class="btn-load-more">
+                    Xem thêm <i class="fa fa-chevron-down"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Blog -->
+         <section class="product-section">
+            <div class="section-head">
+                <div class="section-head-left">
+                    <span class="section-dot section-dot-purle"></span>
+                    <h2 class="section-title">Tin tức công nghệ</h2>
+                </div>
+                <div class="section-line"></div>
+            </div>
+            <div class="row listblogindex" id="listblogindex"></div>
+            
+            <div class="load-more-wrap">
+                <button id="btnsanphambanchay" class="btn-load-more">
+                    Xem thêm <i class="fa fa-chevron-down"></i>
+                </button>
+            </div>
+        </section>
+         
+        <div class="row listblogindex" id="listblogindex"></div>
+
+    </div><!-- end page-container -->
+</div><!-- end maincontentweb -->
+
+<div id="footer" class="maincontentweb"></div>
+
+</body>
+</html>

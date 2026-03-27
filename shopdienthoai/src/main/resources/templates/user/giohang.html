@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/logo.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/banner.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/address.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="js/user.js"></script>
+    <script>
+        window.onload = async function () {
+            await checkroleUser();
+            loadMenu();
+            loadBanner();
+            loadAllCart();
+            loadSanPhamNoiBatCart();
+            loadAddress();
+            loadThongTinUser();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="menumain">
+    </div>
+    <div class="maincontentweb">
+        <div class="containercustom container">
+            <div class="container-fluid">
+                <div class="cart-layout">
+
+                    <!-- ===== CỘT TRÁI: Giỏ hàng + Gợi ý ===== -->
+                    <div class="cart-main">
+
+                        <!-- Header giỏ hàng -->
+                        <div class="cart-header">
+                            <div class="cart-header-left">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <span>Giỏ hàng</span>
+                                <span class="cart-count">(<span id="soluonggiohang">0</span> sản phẩm)</span>
+                            </div>
+                        </div>
+
+                        <!-- Bảng sản phẩm -->
+                        <div class="cart-table-wrap">
+                            <table class="cart-table">
+                                <thead>
+                                    <tr>
+                                        <th>Sản phẩm</th>
+                                        <th>Đơn giá</th>
+                                        <th class="text-center">Số lượng</th>
+                                        <th>Tổng tiền</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="listcartDes"></tbody>
+                            </table>
+                        </div>
+
+                        <!-- Gợi ý sản phẩm -->
+                        <div class="cart-suggest">
+                            <div class="cart-suggest-title">
+                                <span class="section-dot"></span>
+                                Gợi ý sản phẩm
+                            </div>
+                            <div id="goiysanpham" class="row" style="row-gap:10px;"></div>
+                        </div>
+
+                    </div>
+
+                    <!-- ===== CỘT PHẢI: Thanh toán ===== -->
+                    <aside class="cart-checkout">
+
+                        <!-- Tổng tiền -->
+                        <div class="checkout-total-block">
+                            <div class="checkout-total-row">
+                                <span class="checkout-total-label">Tổng đơn hàng</span>
+                                <span class="checkout-total-value" id="tonggiatien">0 ₫</span>
+                            </div>
+                        </div>
+
+                        <form action="javascript:checkout()">
+
+                            <!-- Thông tin nhận hàng -->
+                            <div class="checkout-section">
+                                <div class="checkout-section-title">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                            stroke="currentColor" stroke-width="2" />
+                                        <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor"
+                                            stroke-width="2" />
+                                    </svg>
+                                    Thông tin nhận hàng
+                                </div>
+
+                                <div class="checkout-form-grid">
+                                    <input class="checkout-input" id="hoten" placeholder="Họ và tên" required>
+                                    <input class="checkout-input" id="sodienthoai" placeholder="Số điện thoại" required>
+                                </div>
+                                <select onchange="loadHuyenOnchange()" id="tinh"
+                                    class="checkout-input checkout-select"></select>
+                                <select onchange="loadXaOnchange()" id="huyen" class="checkout-input checkout-select">
+                                    <option selected value="" hidden>--- Chọn huyện ---</option>
+                                </select>
+                                <select id="xa" class="checkout-input checkout-select">
+                                    <option value="" hidden>--- Chọn xã ---</option>
+                                </select>
+                                <input class="checkout-input" id="tenduong" placeholder="Số nhà, tên đường" required>
+                                <textarea class="checkout-input checkout-textarea" id="ghichudonhang" rows="3"
+                                    placeholder="Ghi chú đơn hàng (tuỳ chọn)"></textarea>
+                            </div>
+
+                            <!-- Mã giảm giá -->
+                            <div class="checkout-section">
+                                <div class="checkout-section-title">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                                        <path d="M7 7h.01M17 17h.01M3 12l9-9 9 9-9 9-9-9z" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" />
+                                    </svg>
+                                    Mã giảm giá
+                                </div>
+                                <div class="voucher-row">
+                                    <input id="codevoucher" class="checkout-input voucher-input"
+                                        placeholder="Nhập mã giảm giá">
+                                    <button onclick="loadVoucher()" type="button" class="btn-voucher">Áp dụng</button>
+                                </div>
+                                <div id="blockmess" style="display:none;">
+                                    <span class="voucher-success">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                stroke="currentColor" stroke-width="2" />
+                                        </svg>
+                                        Mã giảm giá đã được áp dụng
+                                    </span>
+                                </div>
+                                <div id="blockmessErr" style="display:none;">
+                                    <span class="voucher-error">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                stroke="currentColor" stroke-width="2" />
+                                        </svg>
+                                        <span id="messerr">Mã giảm giá không khả dụng</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Phương thức thanh toán -->
+                            <div class="checkout-section">
+                                <div class="checkout-section-title">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                    </svg>
+                                    Phương thức thanh toán
+                                </div>
+
+                                <div class="payment-options">
+                                    <label class="payment-option" onclick="momo.click()">
+                                        <input value="momo" id="momo" type="radio" name="paytype" checked>
+                                        <span class="payment-radio"></span>
+                                        <span class="payment-label">Thanh toán qua Ví MoMo</span>
+                                        <img src="image/momo.webp" class="payment-logo">
+                                    </label>
+
+                                    <label class="payment-option" onclick="code.click()">
+                                        <input value="cod" id="code" type="radio" name="paytype">
+                                        <span class="payment-radio"></span>
+                                        <span class="payment-label">Thanh toán khi nhận hàng (COD)</span>
+                                        <svg class="payment-logo" width="28" height="28" viewBox="0 0 24 24"
+                                            fill="none">
+                                            <path
+                                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                stroke="#f59e0b" stroke-width="2" stroke-linecap="round" />
+                                        </svg>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Nút đặt hàng -->
+                            <button class="btn-checkout">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                </svg>
+                                Xác nhận đặt hàng
+                            </button>
+
+                        </form>
+                    </aside>
+
+                </div>
+            </div>
+            <div style="height: 40px;"></div>
+        </div>
+    </div>
+    <div id="footer" class="maincontentweb">
+    </div>
+</body>
+
+</html>
